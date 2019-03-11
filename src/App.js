@@ -1,26 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Container } from 'semantic-ui-react';
+import TabBarContainer from './components/tabs/TabBarContainer';
+import RegistrationPage from './components/pages/RegistrationPage';
+import AutoAdjustPage from './components/pages/AutoAdjustPage';
 
 class App extends Component {
   render() {
+    const tabs = [
+      { name: 'registration', label: 'Registration', component : RegistrationPage },
+      { name: 'autoAdjust', label: 'Auto Adjust', component : AutoAdjustPage }
+    ];
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Container text>
+        <TabBarContainer tabs={tabs} />
+      </Container>
     );
   }
 }
